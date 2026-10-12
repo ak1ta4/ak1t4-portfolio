@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es" class="align-left">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cookies · ak1t4</title>
+<meta name="description" content="Cookies del portfolio de Adrián Sepúlveda Ramos (ak1t4).">
+<meta name="theme-color" content="#0d0a10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="legal-page">
+
+<header class="topbar">
+  <a href="index.html" class="brand" aria-label="Volver al portfolio"><b>ak1t4</b><i>_</i><small>アキタ</small></a>
+  <div class="crumbs"><span class="path">~/legal/</span><span id="crumb">cookies</span></div>
+  <div class="topbar-right">
+    <a class="tb-btn" href="index.html">← volver al portfolio</a>
+  </div>
+</header>
+
+<main class="legal">
+  <nav class="legal-tabs" aria-label="Páginas legales">
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="cookies.html" aria-current="page">Cookies</a>
+  </nav>
+
+  <header class="sec-head">
+    <span class="sec-num">LEGAL</span>
+    <h2 data-jp="クッキー · cookies">Cookies</h2>
+    <p class="legal-meta">Última actualización: 11 de octubre de 2026</p>
+  </header>
+
+  <article class="legal-body">
+    <section class="legal-block"><b>01</b><div><h3>Este sitio no usa cookies</h3>
+      <p>Este portfolio no instala cookies propias ni de terceros, ni con fines de análisis ni de publicidad.</p>
+    </div></section>
+    <section class="legal-block"><b>02</b><div><h3>Preferencias guardadas en tu navegador</h3>
+      <p>Para que la interfaz recuerde cómo la dejaste, se guardan en tu propio navegador tres preferencias. No identifican a nadie, no se envían a ningún servidor y solo se crean cuando usas esas opciones:</p>
+      <div class="legal-table-wrap"><table class="legal-table">
+        <thead><tr><th>CLAVE</th><th>DÓNDE</th><th>PARA QUÉ</th><th>DURACIÓN</th></tr></thead>
+        <tbody>
+          <tr><td><code>ak-side</code></td><td>localStorage</td><td>Recordar si has plegado el índice lateral.</td><td>Hasta que la borres</td></tr>
+          <tr><td><code>ak-crt</code></td><td>localStorage</td><td>Recordar si activaste el efecto CRT (scanlines).</td><td>Hasta que la borres</td></tr>
+          <tr><td><code>ak-boot</code></td><td>sessionStorage</td><td>No repetir la animación de arranque en la misma visita.</td><td>Hasta cerrar la pestaña</td></tr>
+        </tbody>
+      </table></div>
+      <p>Al ser preferencias de interfaz que eliges tú, no requieren consentimiento.</p>
+    </div></section>
+    <section class="legal-block"><b>03</b><div><h3>Cómo borrarlas</h3>
+      <p>Puedes eliminarlas cuando quieras desde la configuración de tu navegador, borrando los datos del sitio. La página seguirá funcionando igual, con las opciones por defecto.</p>
+    </div></section>
+    <section class="legal-block"><b>04</b><div><h3>Sin banner de consentimiento</h3>
+      <p>Como no se instalan cookies, no se muestra ningún aviso de consentimiento: no hay nada que aceptar.</p>
+      <div class="legal-note"><b>NOTA</b><p>Si en el futuro se añadiera alguna función que necesitara cookies, esta página se actualizaría y se pediría tu consentimiento antes de instalarlas.</p></div>
+    </div></section>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="brand-big">ak1t4<b>_</b></div>
+  <p>Adrián Sepúlveda Ramos · Técnico en Telecomunicaciones enfocado en Ciberseguridad — Red &amp; Blue Team.</p>
+  <nav class="footer-links" aria-label="Legal">
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="cookies.html">Cookies</a>
+  </nav>
+  <div class="footer-bottom">
+    <span>© 2026 Adrián Sepúlveda Ramos · ak1t4. Todos los derechos reservados.</span>
+    <span>Ciberseguridad · CTF · DockerLabs</span>
+  </div>
+</footer>
+
+<script>
+  // reloj de la barra superior, igual que en el portfolio
+  (function () {
+    var b = document.querySelector(".topbar-right"), c = document.createElement("span");
+    c.className = "tb-clock"; b.insertBefore(c, b.firstChild);
+    var t = function () { c.textContent = new Date().toLocaleTimeString("es-ES", { hour12: false }); };
+    t(); setInterval(t, 1000);
+  })();
+</script>
+</body>
+</html>

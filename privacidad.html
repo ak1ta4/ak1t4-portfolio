@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es" class="align-left">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacidad · ak1t4</title>
+<meta name="description" content="Privacidad del portfolio de Adrián Sepúlveda Ramos (ak1t4).">
+<meta name="theme-color" content="#0d0a10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="legal-page">
+
+<header class="topbar">
+  <a href="index.html" class="brand" aria-label="Volver al portfolio"><b>ak1t4</b><i>_</i><small>アキタ</small></a>
+  <div class="crumbs"><span class="path">~/legal/</span><span id="crumb">privacidad</span></div>
+  <div class="topbar-right">
+    <a class="tb-btn" href="index.html">← volver al portfolio</a>
+  </div>
+</header>
+
+<main class="legal">
+  <nav class="legal-tabs" aria-label="Páginas legales">
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html" aria-current="page">Privacidad</a>
+    <a href="cookies.html">Cookies</a>
+  </nav>
+
+  <header class="sec-head">
+    <span class="sec-num">LEGAL</span>
+    <h2 data-jp="個人情報 · privacidad">Privacidad</h2>
+    <p class="legal-meta">Última actualización: 11 de octubre de 2026</p>
+  </header>
+
+  <article class="legal-body">
+    <section class="legal-block"><b>01</b><div><h3>Responsable</h3>
+      <p>El responsable de este sitio es <strong>Adrián Sepúlveda Ramos</strong> («<strong>ak1t4</strong>»). Para cualquier consulta, puedes contactar a través de los perfiles enlazados en la página principal.</p>
+    </div></section>
+    <section class="legal-block"><b>02</b><div><h3>Qué datos se recogen</h3>
+      <p><strong>Ninguno.</strong> Es una web estática e informativa: no hay formularios, registro de usuarios, comentarios ni ningún otro mecanismo que te pida datos personales.</p>
+    </div></section>
+    <section class="legal-block"><b>03</b><div><h3>Sin analítica ni seguimiento</h3>
+      <p>No se usan herramientas de analítica, píxeles de seguimiento, publicidad ni rastreadores. La terminal de la página funciona entera en tu navegador: lo que escribes en ella no se envía a ningún sitio.</p>
+    </div></section>
+    <section class="legal-block"><b>04</b><div><h3>Recursos de terceros</h3>
+      <p>Para mostrarse correctamente, la página carga algunos recursos desde servidores externos. Como en cualquier petición web, esos proveedores reciben de forma técnica tu dirección IP y datos básicos del navegador:</p>
+      <ul>
+        <li><strong>Google Fonts</strong>: las tipografías de la página.</li>
+        <li><strong>cdnjs (Cloudflare)</strong>: la librería de animaciones GSAP.</li>
+        <li><strong>catbox.moe</strong>: la imagen de perfil.</li>
+      </ul>
+      <p>Cada proveedor se rige por su propia política de privacidad.</p>
+    </div></section>
+    <section class="legal-block"><b>05</b><div><h3>Enlaces a otras plataformas</h3>
+      <p>Al pulsar los enlaces a GitHub, DockerLabs, TryHackMe u otros servicios, accedes a webs externas con sus propias políticas de privacidad, ajenas a este sitio.</p>
+    </div></section>
+    <section class="legal-block"><b>06</b><div><h3>Tus derechos</h3>
+      <p>Como este sitio no trata datos personales, no hay datos que consultar, rectificar o eliminar. Si tienes cualquier duda, escríbeme a través de los perfiles enlazados.</p>
+    </div></section>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="brand-big">ak1t4<b>_</b></div>
+  <p>Adrián Sepúlveda Ramos · Técnico en Telecomunicaciones enfocado en Ciberseguridad — Red &amp; Blue Team.</p>
+  <nav class="footer-links" aria-label="Legal">
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="cookies.html">Cookies</a>
+  </nav>
+  <div class="footer-bottom">
+    <span>© 2026 Adrián Sepúlveda Ramos · ak1t4. Todos los derechos reservados.</span>
+    <span>Ciberseguridad · CTF · DockerLabs</span>
+  </div>
+</footer>
+
+<script>
+  // reloj de la barra superior, igual que en el portfolio
+  (function () {
+    var b = document.querySelector(".topbar-right"), c = document.createElement("span");
+    c.className = "tb-clock"; b.insertBefore(c, b.firstChild);
+    var t = function () { c.textContent = new Date().toLocaleTimeString("es-ES", { hour12: false }); };
+    t(); setInterval(t, 1000);
+  })();
+</script>
+</body>
+</html>

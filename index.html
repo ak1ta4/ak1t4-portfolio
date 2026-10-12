@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es" class="align-left">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AK1T4 // Portfolio</title>
+<meta name="description" content="Adrián Sepúlveda Ramos · ak1t4 — Portfolio de ciberseguridad y CTF. Red & Blue Team.">
+<meta name="theme-color" content="#0d0a10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>try { if (localStorage.getItem("ak-side") === "0") document.documentElement.classList.add("side-collapsed"); } catch (e) {}</script>
+</head>
+<body>
+
+<!-- ===== BOOT ===== -->
+<div id="boot" aria-hidden="true">
+  <div class="boot-inner">
+    <pre id="boot-log"></pre>
+    <div class="boot-bar"><span id="boot-fill"></span></div>
+    <button id="boot-skip" type="button">[ ESC ] saltar intro</button>
+  </div>
+</div>
+
+<div class="crt" aria-hidden="true"></div>
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <button class="burger" id="burger" type="button" aria-label="Abrir índice" aria-expanded="false" aria-controls="sidenav"><span></span><span></span><span></span></button>
+  <a href="#inicio" class="brand" aria-label="Inicio"><b>ak1t4</b><i>_</i><small>アキタ</small></a>
+  <div class="crumbs" aria-live="polite"><span class="path">~/</span><span id="crumb-num">01</span><span id="crumb">inicio</span></div>
+  <div class="topbar-right">
+    <span class="tb-clock" id="clock">--:--:--</span>
+    <button class="tb-btn" id="crt-toggle" type="button" title="Activar/desactivar scanlines">CRT: OFF</button>
+    <button class="tb-btn tb-term" id="term-open" type="button" title="Ir a la terminal (tecla `)"><b>&gt;_</b><span>terminal</span><kbd>`</kbd></button>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+</header>
+
+<!-- ===== ÍNDICE LATERAL ===== -->
+<nav class="side" id="sidenav" aria-label="Índice">
+  <div class="side-head">
+    <span class="side-title">~/índice</span>
+    <span class="side-pct" id="rail-progress" aria-hidden="true">0%</span>
+    <button class="side-toggle" id="side-toggle" type="button" aria-label="Plegar índice" title="Plegar / desplegar índice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+    </button>
+  </div>
+  <ol class="side-list">
+    <li class="side-item" data-sec="inicio">
+      <div class="side-row">
+        <a class="side-link" href="#inicio" data-label="Inicio"><b>01</b><span>Inicio</span></a>
+        <button class="side-chev" type="button" aria-label="Desplegar Inicio" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="side-sub"><ul>
+        <li><a href="#consola">Biografía · terminal</a></li>
+      </ul></div>
+    </li>
+    <li class="side-item" data-sec="formacion">
+      <div class="side-row">
+        <a class="side-link" href="#formacion" data-label="Formación"><b>02</b><span>Formación</span></a>
+        <button class="side-chev" type="button" aria-label="Desplegar Formación" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="side-sub"><ul>
+        <li><a href="#est-grado-medio">Grado Medio — Telecom.</a></li>
+        <li><a href="#est-grado-superior">Grado Superior — ASIR</a></li>
+      </ul></div>
+    </li>
+    <li class="side-item" data-sec="idiomas">
+      <div class="side-row">
+        <a class="side-link" href="#idiomas" data-label="Idiomas"><b>03</b><span>Idiomas</span></a>
+      </div>
+    </li>
+    <li class="side-item" data-sec="experiencia">
+      <div class="side-row">
+        <a class="side-link" href="#experiencia" data-label="Experiencia"><b>04</b><span>Experiencia</span></a>
+        <button class="side-chev" type="button" aria-label="Desplegar Experiencia" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="side-sub"><ul>
+        <li><a href="#exp-ocio-soluciones-informaticas">Ocio Soluciones Informáticas</a></li>
+        <li><a href="#exp-pc-partner">PC Partner · Rouen</a></li>
+        <li><a href="#exp-institut-les-tourelles">Institut Les Tourelles · Rouen</a></li>
+      </ul></div>
+    </li>
+    <li class="side-item" data-sec="certificaciones">
+      <div class="side-row">
+        <a class="side-link" href="#certificaciones" data-label="Certificaciones"><b>05</b><span>Certificaciones</span></a>
+        <button class="side-chev" type="button" aria-label="Desplegar Certificaciones" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="side-sub"><ul>
+        <li><a href="#cert-security">Security+</a></li>
+        <li><a href="#cert-ejpt">eJPT</a></li>
+        <li><a href="#cert-az-900">AZ-900</a></li>
+        <li><a href="#cert-btl1">BTL1</a></li>
+      </ul></div>
+    </li>
+    <li class="side-item" data-sec="perfiles">
+      <div class="side-row">
+        <a class="side-link" href="#perfiles" data-label="Perfiles"><b>06</b><span>Perfiles</span></a>
+      </div>
+    </li>
+    <li class="side-item" data-sec="herramientas">
+      <div class="side-row">
+        <a class="side-link" href="#herramientas" data-label="Herramientas"><b>07</b><span>Herramientas</span></a>
+        <button class="side-chev" type="button" aria-label="Desplegar Herramientas" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="side-sub"><ul id="side-tools"></ul></div>
+    </li>
+    <li class="side-item" data-sec="recursos" hidden>
+      <div class="side-row">
+        <a class="side-link" href="#recursos" data-label="Recursos"><b>08</b><span>Recursos</span></a>
+      </div>
+    </li>
+    <li class="side-item" data-sec="writeups">
+      <div class="side-row">
+        <a class="side-link" href="#writeups" data-label="Writeups"><b>08</b><span>Writeups</span></a>
+        <button class="side-chev" type="button" aria-label="Desplegar Writeups" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="side-sub"><ul id="side-wu"></ul></div>
+    </li>
+  </ol>
+</nav>
+<div class="side-backdrop" id="side-backdrop" hidden></div>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section id="inicio" class="hero">
+  <canvas id="synth" aria-hidden="true"></canvas>
+  <div class="side-jp l" aria-hidden="true">サイバーセキュリティ</div>
+  <div class="side-jp r" aria-hidden="true">攻撃と防御</div>
+
+  <div class="hero-inner">
+    <div class="hero-avatar">
+      <div class="frame">
+        <img src="https://files.catbox.moe/utjvwn.jpg" alt="Foto de Adrián Sepúlveda Ramos" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <div class="avatar-fallback">AS</div>
+      </div>
+    </div>
+
+    <p class="eyebrow"><span class="blink">▮</span> PORTFOLIO · CIBERSEGURIDAD &amp; CTF</p>
+    <h1 class="glitch" data-text="Adrián Sepúlveda Ramos">Adrián Sepúlveda Ramos</h1>
+    <p class="jp">アドリアン・セプルベダ・ラモス <span class="handle">ak1t4</span></p>
+    <p class="tagline"><span id="typer"></span><span class="caret">▌</span></p>
+    <div class="hero-cta">
+      <a class="btn btn-pink" href="https://github.com/ak1ta4" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.4-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="#consola">&gt;_ Abrir terminal</a>
+    </div>
+  </div>
+
+  <div class="stats joined">
+    <div class="stat"><b data-count="18">0</b><span>máquinas</span></div>
+    <div class="stat"><b data-count="1">0</b><span>plataforma</span></div>
+    <div class="stat"><b data-count="37">0</b><span>saltos de usuario</span></div>
+    <div class="stat"><b data-count="4">0</b><span>certis en proceso</span></div>
+  </div>
+  <a href="#consola" class="scroll-hint" aria-label="Bajar">SCROLL ↓</a>
+</section>
+
+<!-- ===== CONSOLA (bio + terminal) ===== -->
+<section id="consola" class="section">
+  <div class="console reveal">
+    <div class="console-bar">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="title">ak1t4@hq: ~</span>
+      <span class="console-hint">escribe <b>help</b> · <kbd>`</kbd> para enfocar</span>
+    </div>
+    <div class="term-out" id="term-out" aria-live="polite"></div>
+    <form class="term-in" id="term-form">
+      <label for="term-input">ak1t4@hq:~$</label>
+      <input id="term-input" autocomplete="off" spellcheck="false" placeholder="escribe un comando… (help)">
+    </form>
+  </div>
+  <div class="chips reveal" id="term-chips">
+    <span>prueba:</span>
+    <button type="button" data-cmd="help">help</button>
+    <button type="button" data-cmd="ls">ls</button>
+    <button type="button" data-cmd="writeups">writeups</button>
+    <button type="button" data-cmd="certs">certs</button>
+    <button type="button" data-cmd="tool nmap">tool nmap</button>
+    <button type="button" data-cmd="social">social</button>
+  </div>
+  <noscript><p class="sec-sub">Técnico en Telecomunicaciones, muy centrado en la ciberseguridad. Me gusta atacar y defender a partes iguales: resolver máquinas de DockerLabs y CTFs, y entender cómo se protege lo que rompo. Además me manejo muy bien con la IA como herramienta de trabajo —Claude, Claude Code— y la considero una aliada potente y muy útil en el día a día. Mi meta es sacarme la titulación de Ciberseguridad e ir sumando certificaciones de Red y Blue Team.</p></noscript>
+</section>
+
+<!-- ===== 02 FORMACIÓN ===== -->
+<section id="formacion" class="section">
+  <header class="sec-head reveal">
+    <span class="sec-num">02</span>
+    <h2 data-jp="教育 · formación">Formación</h2>
+  </header>
+  <div class="timeline joined" id="edu"></div>
+</section>
+
+<!-- ===== 03 IDIOMAS ===== -->
+<section id="idiomas" class="section">
+  <header class="sec-head reveal">
+    <span class="sec-num">03</span>
+    <h2 data-jp="言語 · idiomas">Idiomas</h2>
+  </header>
+  <div class="langs joined">
+    <div class="lang reveal">
+      <div class="lang-top"><span>Español</span><em>NATIVO</em></div>
+      <div class="bar"><i data-w="100"></i></div>
+      <small>nivel máximo · 100%</small>
+    </div>
+    <div class="lang reveal">
+      <div class="lang-top"><span>Inglés</span><em>B2</em></div>
+      <div class="bar"><i data-w="72"></i></div>
+      <small>B2 · nivel intermedio-alto</small>
+    </div>
+    <div class="lang reveal">
+      <div class="lang-top"><span>Japonés</span><em>A2 · JLPT N5</em></div>
+      <div class="bar"><i data-w="30"></i></div>
+      <small>A2 · N5 · 日本語勉強中</small>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 EXPERIENCIA ===== -->
+<section id="experiencia" class="section">
+  <header class="sec-head reveal">
+    <span class="sec-num">04</span>
+    <h2 data-jp="経験 · misiones completadas">Experiencia</h2>
+  </header>
+  <div class="quests joined" id="quests"></div>
+</section>
+
+<!-- ===== 05 CERTIFICACIONES ===== -->
+<section id="certificaciones" class="section">
+  <header class="sec-head reveal">
+    <span class="sec-num">05</span>
+    <h2 data-jp="資格 · en proceso">Certificaciones</h2>
+    <p class="sec-sub">Certificaciones que estoy preparando ahora mismo, entre ataque, defensa y cloud.</p>
+  </header>
+  <div class="certs joined" id="certs"></div>
+</section>
+
+<!-- ===== 06 PERFILES ===== -->
+<section id="perfiles" class="section">
+  <header class="sec-head reveal">
+    <span class="sec-num">06</span>
+    <h2 data-jp="人物 · plataformas">Perfiles</h2>
+    <p class="sec-sub">Plataformas donde practico y publico. En construcción: creando cuentas y subiendo mis writeups.</p>
+  </header>
+  <div class="arcade joined">
+    <a class="cab reveal" href="https://dockerlabs.es/perfil/ak1t4" target="_blank" rel="noopener">
+      <div class="cab-screen"><span class="cab-logo">DL</span><span class="insert">ONLINE</span></div>
+      <h3>DockerLabs</h3><p>@ak1t4</p>
+    </a>
+    <div class="cab reveal">
+      <div class="cab-screen"><span class="cab-logo">HTB</span><span class="insert">ONLINE</span></div>
+      <h3>HackTheBox</h3><p>@ak1t4</p>
+    </div>
+    <a class="cab reveal" href="https://tryhackme.com/p/ak1t4" target="_blank" rel="noopener">
+      <div class="cab-screen"><span class="cab-logo">THM</span><span class="insert">ONLINE</span></div>
+      <h3>TryHackMe</h3><p>@ak1t4</p>
+    </a>
+  </div>
+</section>
+
+<!-- ===== 07 HERRAMIENTAS ===== -->
+<section id="herramientas" class="section">
+  <header class="sec-head reveal">
+    <span class="sec-num">07</span>
+    <h2 data-jp="道具 · stack">Herramientas</h2>
+    <p class="sec-sub">Pulsa cualquier herramienta para ver qué es y para qué la uso.</p>
+  </header>
+  <div class="tabs reveal" id="tool-tabs" role="tablist"></div>
+  <div class="stack joined" id="inventory"></div>
+</section>
+
+<!-- ===== 08 RECURSOS ===== -->
+<section id="recursos" class="section" hidden>
+  <header class="sec-head reveal">
+    <span class="sec-num">08</span>
+    <h2 data-jp="資料 · documentación">Recursos</h2>
+    <p class="sec-sub">Cursos, guías, vulnerabilidades explicadas y proyectos propios. Todo lo que documento fuera de las máquinas.</p>
+  </header>
+  <div class="res-grid joined" id="res"></div>
+  <div class="center reveal"><a class="btn btn-pink" href="https://v1nl4nd.com/recursos.html" target="_blank" rel="noopener">Explorar recursos →</a></div>
+</section>
+
+<!-- ===== 08 WRITEUPS ===== -->
+<section id="writeups" class="section">
+  <header class="sec-head reveal">
+    <span class="sec-num">08</span>
+    <h2 data-jp="記録 · archivo de misiones">Writeups</h2>
+    <p class="sec-sub"><span id="wu-count">18</span> máquinas documentadas paso a paso.</p>
+  </header>
+  <div class="wu-controls reveal">
+    <div class="filters" id="wu-filters">
+      <button class="filter active" data-f="all" type="button">Todas</button>
+      <button class="filter" data-f="DockerLabs" type="button">DockerLabs</button>
+      <button class="filter" data-f="Fácil" type="button">Fácil</button>
+      <button class="filter" data-f="Muy fácil" type="button">Muy fácil</button>
+    </div>
+    <label class="search">
+      <span>grep</span>
+      <input id="wu-search" type="search" placeholder="técnica, máquina, CVE…" autocomplete="off">
+    </label>
+  </div>
+  <div class="writeups joined" id="wu"></div>
+  <p class="empty" id="wu-empty" hidden>0 resultados. Prueba otro término.</p>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="brand-big">ak1t4<b>_</b></div>
+  <p>Adrián Sepúlveda Ramos · Técnico en Telecomunicaciones enfocado en Ciberseguridad — Red &amp; Blue Team.</p>
+  <div class="hero-cta">
+    <a class="btn sm" href="https://github.com/ak1ta4" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <nav class="footer-links" aria-label="Legal">
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="cookies.html">Cookies</a>
+  </nav>
+  <div class="footer-bottom">
+    <span>© 2026 Adrián Sepúlveda Ramos · ak1t4. Todos los derechos reservados.</span>
+    <span>Ciberseguridad · CTF · DockerLabs</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
