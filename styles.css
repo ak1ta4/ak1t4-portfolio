@@ -8,9 +8,9 @@
   --cell-hi: #1f1222;
   --line: rgba(240, 228, 250, .09);
   --line2: rgba(240, 228, 250, .16);
-  --red: #c9214a;
-  --red-hot: #f03a65;
-  --red-soft: rgba(201, 33, 74, .14);
+  --red: #e4002b;
+  --red-hot: #ff2447;
+  --red-soft: rgba(228, 0, 43, .14);
   --text: #f3eef6;
   --muted: #b4a8bb;
   --dim: #786a80;
@@ -32,10 +32,11 @@ body {
   margin: 0;
   background: var(--bg);
   background-image:
-    radial-gradient(900px 520px at 30% -8%, rgba(201, 33, 74, .15), transparent 70%),
-    radial-gradient(800px 600px at 100% 100%, rgba(90, 100, 230, .07), transparent 70%),
-    radial-gradient(circle, rgba(240, 228, 250, .05) 1px, transparent 1.4px);
-  background-size: auto, 26px 26px;
+    radial-gradient(1000px 620px at 50% -12%, rgba(228, 0, 43, .17), transparent 70%),
+    linear-gradient(to right, rgba(235, 227, 243, .025) 1px, transparent 1px),
+    linear-gradient(rgba(235, 227, 243, .025) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  background-position: center top, center center, center center;
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--f-body);
@@ -253,7 +254,7 @@ main, .footer { margin-left: calc(var(--side) + var(--gap) * 2); transition: mar
 .term-in label { color: var(--red-hot); white-space: nowrap; }
 .term-in input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--text); font: inherit; caret-color: var(--red-hot); }
 .term-in input::placeholder { color: var(--dim); }
-.console:focus-within { border-color: rgba(201, 33, 74, .55); }
+.console:focus-within { border-color: rgba(228, 0, 43, .55); }
 .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 860px; margin: 16px auto 0; }
 .chips span { font-family: var(--f-mono); font-size: 12px; color: var(--dim); align-self: center; margin-right: 4px; }
 .chips button { font-family: var(--f-mono); font-size: 12px; padding: 4px 11px; background: none; border: 1px solid var(--line); color: var(--muted); transition: all .2s; }
@@ -272,7 +273,7 @@ main, .footer { margin-left: calc(var(--side) + var(--gap) * 2); transition: mar
 .lvl { font-family: var(--f-mono); font-size: 12px; color: var(--dim); }
 .node p { margin: 4px 0 0; color: var(--muted); }
 .node .now { display: inline-block; margin-top: 10px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 1px; padding: 1px 10px; color: #fff; background: var(--red); }
-.future { margin: 24px 0 0; padding: 24px 26px; border: 1px dashed rgba(201, 33, 74, .5); background: linear-gradient(90deg, var(--red-soft), transparent); text-align: center; }
+.future { margin: 24px 0 0; padding: 24px 26px; border: 1px dashed rgba(228, 0, 43, .5); background: linear-gradient(90deg, var(--red-soft), transparent); text-align: center; }
 .future-badge { font-family: var(--f-mono); font-size: 12px; color: var(--red-hot); letter-spacing: 3px; margin-bottom: 6px; }
 .future h3 { margin: 0 0 6px; font-family: var(--f-head); font-size: 22px; }
 .future p { margin: 0 auto; color: var(--muted); max-width: 64ch; }
@@ -366,7 +367,7 @@ main, .footer { margin-left: calc(var(--side) + var(--gap) * 2); transition: mar
 .cab { display: block; padding: 16px 16px 20px; text-align: center; transition: background .25s; }
 .cab:hover { background: var(--cell-hi); }
 .cab-screen { position: relative; aspect-ratio: 16/9; display: grid; place-items: center; align-content: center; gap: 6px; overflow: hidden; border: 1px solid var(--line); background: radial-gradient(ellipse at center, #211329, #0d0a10); }
-.cab-screen::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle, rgba(201, 33, 74, .5) 1px, transparent 1.4px) 0 0 / 7px 7px; -webkit-mask: linear-gradient(160deg, #000, transparent 65%); mask: linear-gradient(160deg, #000, transparent 65%); opacity: .6; }
+.cab-screen::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle, rgba(228, 0, 43, .5) 1px, transparent 1.4px) 0 0 / 7px 7px; -webkit-mask: linear-gradient(160deg, #000, transparent 65%); mask: linear-gradient(160deg, #000, transparent 65%); opacity: .6; }
 .cab-logo { position: relative; font-family: var(--f-head); font-weight: 700; font-size: clamp(26px, 3.4vw, 36px); transition: color .2s; }
 .cab:hover .cab-logo { color: var(--red-hot); }
 .insert { position: relative; font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
@@ -594,7 +595,7 @@ html { zoom: var(--z); }
 }
 
 /* ---------- writeup: tarjeta como botón ---------- */
-.wu { width: 100%; text-align: left; font: inherit; color: var(--text); background: var(--panel); appearance: none; }
+.wu { width: 100%; text-align: left; font: inherit; color: var(--text); background: var(--panel); appearance: none; border-top: 0; border-left: 0; }
 .wu .read { transition: color .2s; }
 
 /* ---------- writeup popup ---------- */
@@ -666,3 +667,7 @@ html { zoom: var(--z); }
 .vuln p:last-child { margin-bottom: 0; }
 .vuln p b { color: var(--text); font-weight: 600; }
 .vuln-fix b { color: var(--sv); }
+
+/* ---------- lluvia matrix (fondo global) ---------- */
+#matrix { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: .28; }
+@media (prefers-reduced-motion: reduce) { #matrix { opacity: .12; } }

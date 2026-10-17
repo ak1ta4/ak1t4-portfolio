@@ -2726,6 +2726,50 @@
   setCrt(crtPref === "1");
   crtBtn.addEventListener("click", () => setCrt(document.body.classList.contains("no-crt")));
 
+  /* ---------------- MATRIX RAIN (fondo global) ---------------- */
+  (function matrix() {
+    const cv = document.createElement("canvas");
+    cv.id = "matrix"; cv.setAttribute("aria-hidden", "true");
+    document.body.prepend(cv);
+    const ctx = cv.getContext("2d");
+    const CHARS = "アカサタナハマヤラワイキシチニヒミリヰウクスツヌフムユルエケセテネヘメレヱオコソトノホモヨロヲ0123456789:/\\$#*+<>".split("");
+    let w, h, dpr, cols, drops, fs, visible = true;
+    function resize() {
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      w = innerWidth; h = innerHeight;
+      cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      fs = w < 600 ? 13 : 16;
+      cols = Math.ceil(w / fs);
+      drops = Array.from({ length: cols }, () => Math.random() * -40);
+      ctx.clearRect(0, 0, w, h);
+    }
+    resize();
+    addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", () => { visible = !document.hidden; });
+    let last = 0;
+    function draw(t) {
+      requestAnimationFrame(draw);
+      if (!visible || document.body.classList.contains("no-matrix")) return;
+      if (t - last < 55) return; last = t; // ~18 fps, suficiente y ligero
+      ctx.fillStyle = "rgba(13, 10, 16, .10)"; // estela: desvanece lo anterior
+      ctx.fillRect(0, 0, w, h);
+      ctx.font = fs + "px 'IBM Plex Mono', monospace";
+      for (let i = 0; i < cols; i++) {
+        const ch = CHARS[(Math.random() * CHARS.length) | 0];
+        const x = i * fs, y = drops[i] * fs;
+        ctx.fillStyle = "rgba(255, 36, 71, .75)";            // cuerpo rojo
+        ctx.fillText(ch, x, y);
+        if (Math.random() < .5) { ctx.fillStyle = "rgba(255, 220, 228, .9)"; ctx.fillText(ch, x, y); } // cabeza clara
+        if (y > h && Math.random() > .975) drops[i] = Math.random() * -20;
+        drops[i] += 0.5;
+      }
+    }
+    if (reduced) { // una sola pasada estática
+      ctx.font = fs + "px 'IBM Plex Mono', monospace"; ctx.fillStyle = "rgba(255,36,71,.3)";
+      for (let i = 0; i < cols; i++) ctx.fillText(CHARS[(Math.random() * CHARS.length) | 0], i * fs, (Math.random() * h));
+    } else requestAnimationFrame(draw);
+  })();
+
   /* ---------------- HUD CANVAS (speed lines · rings · network) ---------------- */
   (function hud() {
     const cv = $("#synth"), ctx = cv.getContext("2d");
