@@ -1,8 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <clipPath id="shield">
+      <path d="M16 4 L26.5 8 V16.5 C26.5 21.8 22.2 25.6 16 28.2 C9.8 25.6 5.5 21.8 5.5 16.5 V8 Z"/>
+    </clipPath>
+  </defs>
+  <!-- fondo -->
   <rect width="32" height="32" rx="7" fill="#0d0a10"/>
-  <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="6.6" fill="none" stroke="#ff2447" stroke-opacity="0.55" stroke-width="1.2"/>
-  <g fill="none" stroke="#ff2447" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="9,10 15,16 9,22"/>
+  <!-- escudo partido: rojo (ataque) / azul (defensa) -->
+  <g clip-path="url(#shield)">
+    <rect x="0" y="0" width="16" height="32" fill="#ff2447"/>
+    <rect x="16" y="0" width="16" height="32" fill="#5c7cf0"/>
+    <rect x="15.2" y="0" width="1.6" height="32" fill="#0d0a10"/>
   </g>
-  <rect x="17" y="19.6" width="7" height="2.8" rx="1.4" fill="#ff2447"/>
+  <!-- contorno del escudo -->
+  <path d="M16 4 L26.5 8 V16.5 C26.5 21.8 22.2 25.6 16 28.2 C9.8 25.6 5.5 21.8 5.5 16.5 V8 Z"
+        fill="none" stroke="#f3eef6" stroke-opacity="0.9" stroke-width="1.3" stroke-linejoin="round"/>
+  <!-- ojo de cerradura (acceso / root) -->
+  <g fill="#0d0a10">
+    <circle cx="16" cy="14.2" r="2.7"/>
+    <path d="M14.6 15.4 L17.4 15.4 L18.1 21 L13.9 21 Z"/>
+  </g>
 </svg>
